@@ -1,0 +1,43 @@
+public class HelloWorld {
+  static class A{
+    //default
+    static int i;
+  }
+  static class B{
+    static int i;
+    //non-parameterized
+    B(){
+      this.i = 2;
+    }
+  }
+  static class C{
+  //parameterized
+    static int i;
+    C(int i){
+      this.i = i;
+    }
+  }
+  static class D{
+  //private
+    static int i;
+    private D(){
+      i = Integer.MAX_VALUE;
+    }
+    D(int i){
+      this();
+      if(i % 2 == 0)
+        this.i = i;
+    }   
+  }
+    public static void main(String[] args) {
+        A a = new A(); //has default Constructor
+        A.i = 1;
+        B b = new B(); // has non-parameterized Constructor
+        C c = new C(3); // has parameterized Constructor
+        D d = new D(5); // has private Constructor
+        System.out.println("in A i = "+A.i);
+        System.out.println("in B i = "+B.i);
+        System.out.println("in C i = "+C.i);
+        System.out.println("in D i = "+D.i);
+    }
+}
